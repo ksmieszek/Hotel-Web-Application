@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Firma.Data.Data.Sklep.Rodzaj>
+
+<div class="container">
+    <a id="logo-container" href="/Sklep"><img src="~/images/logo.jpg" class="logo-sklep" style="background: transparent;"></a>
+    
+    <ul class="right hide-on-med-and-down">
+        <li>
+            @Html.ActionLink("Strona główna", "Index", "Home")
+        </li>
+        @foreach (var item in Model)
+        {
+            <li>
+                @Html.ActionLink(item.Nazwa, "Index", "Sklep", new { id = item.IdRodzaju }, null)
+            </li>
+        }
+        <li>
+            <a class="btn-floating waves-effect waves-light" href='@Url.Action("Index","Koszyk")'><i class="material-icons right green">shopping_cart</i></a>
+        </li>
+    </ul>
+
+    <ul id="nav-mobile" class="sidenav">
+        <li>
+            @Html.ActionLink("Home", "Index", "Home")
+        </li>
+        <li>
+            @Html.ActionLink("Strona główna sklepu", "Index", "Sklep")
+        </li>
+        @foreach (var item in Model)
+        {
+            <li>
+                @Html.ActionLink(item.Nazwa, "Index", "Sklep", new { id = item.IdRodzaju }, null)
+            </li>
+        }
+        <li>
+            @Html.ActionLink("Koszyk", "Index", "Koszyk")
+        </li>
+    </ul>
+
+    <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+</div>
+

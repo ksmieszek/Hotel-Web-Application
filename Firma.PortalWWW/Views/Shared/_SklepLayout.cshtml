@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - Firma.PortalWWW</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="~/lib/materialize/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+        <link href="~/css/site.css" type="text/css" rel="stylesheet" media="screen,projection" />
+        <link href="~/css/StyleSheet.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    </head>
+    <body>
+        <nav role="navigation">
+            @await Html.PartialAsync("Menu", (IEnumerable<Firma.Data.Data.Sklep.Rodzaj>)ViewBag.Rodzaje)
+        </nav>
+    
+        <div class="container row" style="margin-bottom: 80px;">
+            @RenderBody()
+        </div>
+
+        @await Html.PartialAsync("Stopka")
+
+        <!-- Scripts-->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="~/lib/materialize/js/materialize.js"></script>
+        <script src="~/lib/materialize/js/init.js"></script>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script>
+            M.AutoInit();
+            document.addEventListener('DOMContentLoaded', function () {
+                var elems = document.querySelectorAll('.collapsible');
+                var instances = M.Collapsible.init(elems, options);
+            });
+        </script>
+        @RenderSection("Scripts", required: false)
+    </body>
+</html>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Firma.Data.Data.CMS.Pakiety>
+
+@{
+    ViewData["Title"] = "Pakiety";
+}
+
+<div class="packets container margin-top" style="margin-bottom: 80px;">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col s12 m4">
+                <div class="card hoverable z-depth-2">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src=@item.UrlZdjecia style="width: 405px; height: 300px;">
+                    </div>
+                    <div class="card-content center-align">
+                        <span class="card-title activator grey-text text-darken-4 left-align">
+                            @item.Tytul
+                            <span class="right"><a class="btn red accent-4 white-text activator">Szczegóły</a></span>
+                        </span>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">@item.Tytul<i class="material-icons right">close</i></span>
+                        <div class="section">
+                            <div>
+                                <p class="valign-wrapper">
+                                    <i class="small material-icons red-text text-accent-4">restaurant</i>&nbsp;
+                                    @item.Posilki
+                                </p>
+                            </div>
+                            <div>
+                                <p class="valign-wrapper">
+                                    <i class="small material-icons red-text text-accent-4">access_time</i>&nbsp;
+                                    @item.Czas
+                                </p>
+                            </div>
+                            <div>
+                                <p class="valign-wrapper">
+                                    <i class="small material-icons red-text text-accent-4">group</i>&nbsp;
+                                    @item.IloscOsob
+                                </p>
+                            </div>
+                        </div>
+                        <div class="section bottom">
+                            <div class="card-action">
+                                od<span class="red-text text-accent-4 price">&nbsp;@item.Cena.ToString("0") zł</span> /noc
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

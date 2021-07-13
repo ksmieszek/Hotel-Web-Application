@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Firma.Data.Data.CMS.Pokoje>
+
+@{
+    ViewData["Title"] = "Pokoje";
+}
+
+<div class="rooms container margin-top" style="margin-bottom: 80px;">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col s12 m6">
+                <div class="room card hoverable z-depth-2">
+                    <div class="card-image">
+                        <img src=@item.UrlZdjecia style="width: 616px; height: 460px;">
+                    </div>
+                    <div class="card-content">
+                        <div class="cena">
+                            od<span class="red-text text-accent-4 price">&nbsp;@item.Cena.ToString("0") zł</span> /noc
+                        </div>
+                        <h5>@item.Nazwa</h5>
+                    </div>
+                    <div class="card-action">
+                        <p class="valign-wrapper">
+                            <i class="small material-icons red-text text-accent-4">crop_free</i>&nbsp;@item.Powierzchnia m<sup>2</sup>&nbsp;powierzchni
+                        </p>
+                        <p class="valign-wrapper">
+                            <i class="small material-icons red-text text-accent-4">group</i>&nbsp;@item.IloscOsob
+                        </p>
+                        <p class="valign-wrapper">
+                            <i class="small material-icons red-text text-accent-4">local_hotel</i>&nbsp;@item.IloscLozek
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

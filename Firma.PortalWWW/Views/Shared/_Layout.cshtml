@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - Firma.PortalWWW</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="~/lib/materialize/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+        <link href="~/css/site.css" type="text/css" rel="stylesheet" media="screen,projection" />
+        <link href="~/css/StyleSheet.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    </head>
+    <body>
+        <div class="navbar-fixed">
+            <nav class="row">
+                <div class="nav-wrapper col s8 offset-s2">
+                    <a href="@Url.Action("Index", "Home")" class="brand-logo center"><img src="~/images/logo.jpg" class="logo"></a>
+
+                    <ul class="left hide-on-med-and-down">
+                        <li>@Html.ActionLink("Sklep", "Index", "Sklep")</li>
+                        <li>@Html.ActionLink("Rezerwacje", "Rezerwacje", "Home")</li>
+                        <li>@Html.ActionLink("Restauracja", "Restauracja", "Home")</li>
+                        <li>@Html.ActionLink("Spa", "Index", "Home")</li>
+                    </ul>
+                    <ul class="right hide-on-med-and-down">
+                        <li>@Html.ActionLink("Oferty specjalne", "OfertySpecjalne", "Home")</li>
+                        <li>@Html.ActionLink("Biznes", "Biznes", "Home")</li>
+                        <li>@Html.ActionLink("Wesele", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Kontakt", "Index", "Home")</li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div>
+            @RenderBody()
+        </div>
+
+        @await Html.PartialAsync("Stopka")
+
+        <!-- Scripts-->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="~/lib/materialize/js/materialize.js"></script>
+        <script src="~/lib/materialize/js/init.js"></script>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script>
+            M.AutoInit();
+            document.addEventListener('DOMContentLoaded', function () {
+                var instance = M.Carousel.init({
+                    fullWidth: true,
+                    indicators: true
+                });
+            });
+        </script>
+        @RenderSection("Scripts", required: false)
+    </body>
+</html>

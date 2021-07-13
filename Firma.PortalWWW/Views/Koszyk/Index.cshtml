@@ -1,0 +1,40 @@
+﻿@model Firma.PortalWWW.Models.Sklep.DaneDoKoszyka
+@{
+    ViewData["Title"] = "Koszyk";
+    Layout = "~/Views/Shared/_KoszykLayout.cshtml";
+}
+
+<div class="row margin-top" style="margin-bottom: 80px;">
+    <div class="col s8">
+        <ul class="collection" style="background: white;margin: 0;border-radius: 10px;border: none;">
+            @foreach (var item in Model.ElementyKoszyka)
+            {
+                var ZaTowar = @item.Towar.Cena * @item.Ilosc;
+                <li style="display: flex; align-items: center; padding: 20px;">
+                    <img src=@item.Towar.UrlZdjecia alt="" class="circle" style="width: 80px; height: 80px; margin-right: 20px;">
+                    <div style="width: 270px;">
+                        <span class="title" style="font-weight: bold;">@item.Towar.Nazwa</span>
+                        <br><span>@item.Towar.Cena.ToString("0.00") zł</span>
+                    </div>
+                    <div style="margin-left: 150px;">
+                        x @item.Ilosc
+                    </div>
+                    <div style="margin-left: 150px;">
+                        @ZaTowar.ToString("0.00") zł
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="col s4" style="padding: 50px 30px 30px; background: #fff; border-radius: 10px;">
+        <div style="display: flex; justify-content: space-between; font-size: 20px; margin-bottom: 30px;">
+            <span>
+                Łączna kwota
+            </span>
+            <span>
+                @Model.Razem.ToString("0.00") zł
+            </span>
+        </div>
+        <div><a href="#" style="display: flex; justify-content: center; padding: 10px; background: #d50000; font-weight: bold; color: white; border-radius: 10px; ">Wybierz płatność</a></div>
+    </div>
+</div>

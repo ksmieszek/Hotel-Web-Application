@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Restauracja";
+}
+
+<div class="container welcome-text margin-top">
+    <h3 class="center" style="font-weight: 300;margin-bottom: 50px;">
+        Kulinarna podróż
+    </h3>
+    <div class="row center">
+        Połączenie kunsztu kucharzy oraz wspaniale urządzonego wnętrza zapewni ucztę wszystkich zmysłów.
+    </div>
+    <div class="row center">
+        Restauracja a'la carte skusi Państwa prawdziwą włoską kuchnią, a szeroki wybór najlepszych alkoholi w Lobby Barze pozwoli na wieczorną chwilę zapomnienia.
+    </div>
+</div>
+
+@await Html.PartialAsync("Posilki", (IEnumerable<Firma.Data.Data.CMS.Posilki>)ViewBag.ModelPosilek)

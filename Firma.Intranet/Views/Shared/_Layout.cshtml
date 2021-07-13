@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+        <title>@ViewData["Title"] - Firma.Intranet</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <link rel="stylesheet" href="~/template/assets/vendor/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="~/template/assets/vendor/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="~/template/assets/vendor/linearicons/style.css">
+        <link rel="stylesheet" href="~/template/assets/vendor/chartist/css/chartist-custom.css">
+        <link rel="stylesheet" href="~/template/assets/css/main.css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+        <link rel="apple-touch-icon" sizes="76x76" href="~/template/assets/img/apple-icon.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="~/template/assets/img/favicon.png">
+    </head>
+    <body>
+        <div id="wrapper">
+            <div class="sidebar">
+                <div class="sidebar-scroll">
+                    <nav>
+                        <ul class="nav">
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="Index" class=""><i class="lnr lnr-home"></i> <span>Dashboard</span></a>
+                            </li>
+                            <li>
+                                <a asp-area="" asp-controller="Pokoje" asp-action="Index" class=""><i class="lnr lnr-dice"></i><span>Pokoje</span></a>
+                            </li>
+                            <li>
+                                <a asp-area="" asp-controller="Pakiety" asp-action="Index" class=""><i class="lnr lnr-dice"></i><span>Pakiety</span></a>
+                            </li>
+                            <li>
+                                <a asp-area="" asp-controller="Posilki" asp-action="Index" class=""><i class="lnr lnr-dice"></i><span>Posiłki</span></a>
+                            </li>
+                            <li>
+                                <a asp-area="" asp-controller="Rodzaj" asp-action="Index" class=""><i class="lnr lnr-dice"></i><span>Rodzaje</span></a>
+                            </li>
+                            <li>
+                                <a asp-area="" asp-controller="Towar" asp-action="Index" class=""><i class="lnr lnr-dice"></i><span>Towary</span></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="main" style="padding-left: 100px; padding-right: 100px;">
+                @RenderBody()
+            </div>
+
+        </div>
+
+        <!-- Scripts-->
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/template/assets/vendor/jquery/jquery.js"></script>
+        <script src="~/template/assets/vendor/bootstrap/js/bootstrap.js"></script>
+        <script src="~/template/assets/vendor/jquery-slimscroll/jquery.slimscroll.js"></script>
+        <script src="~/template/assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.js"></script>
+        <script src="~/template/assets/vendor/chartist/js/chartist.js"></script>
+        <script src="~/template/assets/scripts/klorofil-common.js"></script>
+        <script>
+            var sciezka = window.location.href;
+            var adres = sciezka.substring(24);
+            var element = document.querySelector("a[href='/" + adres + "']");
+            element.classList.add("active");
+        </script>
+        @RenderSection("Scripts", required: false)
+
+    </body>
+</html>

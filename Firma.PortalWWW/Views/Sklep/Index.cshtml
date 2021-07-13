@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Firma.Data.Data.Sklep.Towar>
+
+@{
+    ViewData["Title"] = "Sklep";
+    Layout = "~/Views/Shared/_SklepLayout.cshtml";
+}
+
+<div class="meals margin-top">
+    @foreach (var item in Model)
+    {
+        <div class="row" style="display: flex;">
+            <div class="col s10" style="margin-right: auto;">
+                <div class="card horizontal hoverable z-depth-2" style="display: flex; flex-direction: column;">
+                    <div style="display: flex;">
+                        <div class="card-image">
+                            <img src="@item.UrlZdjecia" style="width: 400px; height: 240px;">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <p class="title">@item.Nazwa</p>
+                                <p class="light" style="margin-top: 15px;">@item.KrotkiOpis</p>
+                            </div>
+
+                            <div class="card-action" style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>Cena:<span class="red-text text-accent-4 price">&nbsp;@item.Cena.ToString("0.00") zł</span></div>
+                                <div><a asp-action="Szczegoly" asp-route-id="@item.IdTowaru" style="display: flex; align-items: center; padding: 10px; background: #d50000; font-weight: bold; color: white; margin: 0; border-radius: 10px; ">Strona produktu <i class="material-icons">keyboard_arrow_right</i></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="collapsible" style="box-shadow: none; border: none;">
+                        <li>
+                            <div class="collapsible-header" style="display: flex; justify-content: flex-end; border: none;">Opis<i class="material-icons">keyboard_arrow_down</i></div>
+                            <div class="collapsible-body" style="border: none;"><span>@item.Opis</span></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,5 @@
+﻿@{
+    ViewData["Title"] = "Rezerwacje";
+}
+
+@await Html.PartialAsync("Pokoje", (IEnumerable<Firma.Data.Data.CMS.Pokoje>)ViewBag.ModelPokoj)

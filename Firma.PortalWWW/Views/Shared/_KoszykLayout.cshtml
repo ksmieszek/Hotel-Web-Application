@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - Firma.PortalWWW</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="~/lib/materialize/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+        <link href="~/css/site.css" type="text/css" rel="stylesheet" media="screen,projection" />
+        <link href="~/css/StyleSheet.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    </head>
+    <body style="background: #f9f9f9">
+        <nav role="navigation">
+            <div class="container">
+                <a id="logo-container" href="#"><img src="~/images/logo.jpg" class="logo-sklep"></a>
+
+                <ul class="right hide-on-med-and-down">
+                    <li>
+                        @Html.ActionLink("Sklep", "Index", "Sklep")
+                    </li>
+                </ul>
+
+                <ul id="nav-mobile" class="sidenav">
+                    <li>
+                        @Html.ActionLink("Sklep", "Index", "Sklep")
+                    </li>
+                </ul>
+
+                <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                @RenderBody()
+            </div>
+        </div>
+
+        @await Html.PartialAsync("Stopka")
+
+        <!--  Scripts-->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="~/lib/materialize/js/materialize.js"></script>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @RenderSection("Scripts", required: false)
+    </body>
+</html>

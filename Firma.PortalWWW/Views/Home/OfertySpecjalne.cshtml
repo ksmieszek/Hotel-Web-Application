@@ -1,0 +1,5 @@
+﻿@{
+    ViewData["Title"] = "Oferty specjalne";
+}
+
+@await Html.PartialAsync("Pakiety", (IEnumerable<Firma.Data.Data.CMS.Pakiety>)ViewBag.ModelPakiet)
